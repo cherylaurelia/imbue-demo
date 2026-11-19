@@ -81,7 +81,7 @@ export default function Page() {
           <p className="mt-5 max-w-3xl text-lg">
             <strong>Problem:</strong> Homebrew&apos;s <code className="font-mono">python3</code> is now 3.15, and google-re2 (via
             cel-python) has no 3.15 wheel, so <code className="font-mono">uv tool install imbue-mngr</code> fails and nothing installs.
-            That&apos;s anyone who ran <code className="font-mono">brew upgrade</code> since 3.15 shipped, or has a uv-managed 3.15.
+            Tested: with <code className="font-mono">/opt/homebrew/bin</code> on PATH and no other Python, uv picks Homebrew&apos;s 3.15.
           </p>
           <p className="mt-3 max-w-3xl text-lg">
             <strong>Fix:</strong> one flag in <code className="font-mono">install.sh</code>,{" "}
@@ -121,8 +121,10 @@ export default function Page() {
           </pre>
           <p className="mt-3 max-w-3xl">
             Plus one assertion in the existing <code className="font-mono">test_install_script.py</code> (fails without the change,
-            7/7 pass with it). The README&apos;s manual <code className="font-mono">uv tool install imbue-mngr</code> line hits the same
-            error on 3.15; it&apos;s left alone to keep the change to the installer.
+            7/7 pass with it) and the two changelog entries your <code className="font-mono">check-changelog</code> gate asks for. The
+            README&apos;s manual <code className="font-mono">uv tool install imbue-mngr</code> and{" "}
+            <code className="font-mono">--with imbue-mngr-docker</code> lines hit the same error on 3.15 and need the same flag if you
+            copy this; the branch leaves them alone to keep the change to the installer.
           </p>
         </section>
 
@@ -188,7 +190,7 @@ export default function Page() {
               </a>
               , open since July. The pin can go when this prints a <code className="font-mono">cp315</code> wheel:
             </p>
-            <pre className="mt-2 overflow-x-auto rounded border border-ink/15 bg-cream p-3 font-mono text-[12px]">
+            <pre className="mt-2 rounded border border-ink/15 bg-cream p-3 font-mono text-[12px] break-all whitespace-pre-wrap">
               <code>pip download google-re2 --no-deps --only-binary=:all: --python-version 3.15 --platform macosx_14_0_arm64 -d /tmp/re2</code>
             </pre>
             <p className="mt-2">
