@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+/* Colors from imbue.com/product/mngr: sky-blue header, deep teal ink, cream panels, red accent. */
+@theme {
+  --color-sky: #8eafcb;
+  --color-ink: #0b292b;
+  --color-cream: #fcefd4;
+  --color-paper: #f7f6ee;
+  --color-sage: #e9ecd9;
+  --color-red: #b00a00;
+  --color-pass: #1d5c2e;
+  --color-muted: #3d5455;
+  --font-serif: "Caslon Ionic", Rockwell, "Roboto Slab", Georgia, serif;
+  --font-sans: "ABC Diatype", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "ABC Diatype Semi-Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+a {
+  text-underline-offset: 3px;
+}

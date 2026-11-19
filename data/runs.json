@@ -1,0 +1,97 @@
+{
+ "runs": [
+  {
+   "arm": "homebrew-main",
+   "setup": "homebrew",
+   "script": "https://raw.githubusercontent.com/imbue-ai/mngr/main/scripts/install.sh",
+   "startedAt": "2026-11-19T00:01:04Z",
+   "installExit": 1,
+   "pythonOnPath": "Python 3.15.2",
+   "mngrVersion": null,
+   "mngrListExit": 127,
+   "toolPython": null,
+   "errors": [
+    "error: Failed to build `google-re2==1.1.20251105`",
+    "_re2.cc:15:10: fatal error: 'absl/strings/string_view.h' file not found"
+   ]
+  },
+  {
+   "arm": "homebrew-fix",
+   "setup": "homebrew",
+   "script": "https://raw.githubusercontent.com/cherylaurelia/mngr/c8664a34b0a1c9f41a882919c75b26362c1f5065/scripts/install.sh",
+   "startedAt": "2026-11-19T00:01:12Z",
+   "installExit": 0,
+   "pythonOnPath": "Python 3.15.2",
+   "mngrVersion": "mngr 0.3.1",
+   "mngrListExit": 0,
+   "toolPython": "Python 3.12.16",
+   "errors": []
+  },
+  {
+   "arm": "stock-main",
+   "setup": "stock",
+   "script": "https://raw.githubusercontent.com/imbue-ai/mngr/main/scripts/install.sh",
+   "startedAt": "2026-11-19T00:01:33Z",
+   "installExit": 0,
+   "pythonOnPath": "Python 3.9.6",
+   "mngrVersion": "mngr 0.3.1",
+   "mngrListExit": 0,
+   "toolPython": "Python 3.12.15",
+   "errors": []
+  },
+  {
+   "arm": "stock-fix",
+   "setup": "stock",
+   "script": "https://raw.githubusercontent.com/cherylaurelia/mngr/c8664a34b0a1c9f41a882919c75b26362c1f5065/scripts/install.sh",
+   "startedAt": "2026-11-19T00:01:55Z",
+   "installExit": 0,
+   "pythonOnPath": "Python 3.9.6",
+   "mngrVersion": "mngr 0.3.1",
+   "mngrListExit": 0,
+   "toolPython": "Python 3.12.15",
+   "errors": []
+  },
+  {
+   "arm": "range-homebrew-fix",
+   "setup": "homebrew",
+   "script": "https://raw.githubusercontent.com/cherylaurelia/mngr/856436e34339438cbc726178692f462bd239237d/scripts/install.sh",
+   "startedAt": "2026-11-18T23:55:12Z",
+   "installExit": 0,
+   "pythonOnPath": "Python 3.15.2",
+   "mngrVersion": "mngr 0.3.1",
+   "mngrListExit": 0,
+   "toolPython": "Python 3.14.10",
+   "errors": []
+  },
+  {
+   "arm": "range-stock-fix",
+   "setup": "stock",
+   "script": "https://raw.githubusercontent.com/cherylaurelia/mngr/856436e34339438cbc726178692f462bd239237d/scripts/install.sh",
+   "startedAt": "2026-11-18T23:56:00Z",
+   "installExit": 0,
+   "pythonOnPath": "Python 3.9.6",
+   "mngrVersion": "mngr 0.3.1",
+   "mngrListExit": 0,
+   "toolPython": "Python 3.14.8",
+   "errors": []
+  }
+ ],
+ "excerpts": {
+  "homebrew-main": [
+   "==> uv is already installed (uv 0.13.6 (Homebrew 2026-10-26 aarch64-apple-darwin))",
+   "==> Installing mngr...",
+   "   Building google-re2==1.1.20251105",
+   "error: Failed to build `google-re2==1.1.20251105`",
+   "         _re2.cc:15:10: fatal error: 'absl/strings/string_view.h' file not found",
+   "hint: `google-re2` (v1.1.20251105) was included because `imbue-mngr` (v0.3.1) depends on `cel-python` (v0.5.0) which depends on `google-re2`"
+  ],
+  "homebrew-fix": [
+   "==> uv is already installed (uv 0.13.6 (Homebrew 2026-10-26 aarch64-apple-darwin))",
+   "==> Installing mngr...",
+   " Downloaded cpython-3.12.16-macos-aarch64-none (download)",
+   " + imbue-mngr==0.3.1",
+   "Installed 1 executable: mngr",
+   "==> Get started with: mngr --help"
+  ]
+ }
+}
