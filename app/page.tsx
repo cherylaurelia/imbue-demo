@@ -33,7 +33,7 @@ const SCRIPT_LABEL: Record<ScriptVersion, string> = {
 
 const before = findRun(data, "homebrew-main");
 const after = findRun(data, "homebrew-fix");
-const runDate = before.startedAt.slice(0, 10);
+const runTime = `${before.startedAt.slice(0, 16).replace("T", " ")} UTC`;
 
 function Terminal({ title, run, lines }: { title: string; run: InstallRun; lines: string[] }) {
   const ok = installed(run);
@@ -85,7 +85,9 @@ export default function Page() {
           </p>
           <p className="mt-3 max-w-3xl text-lg">
             <strong>Fix:</strong> one flag in <code className="font-mono">install.sh</code>,{" "}
-            <code className="font-mono">--python 3.12</code>, the same Python a Mac without Homebrew already gets.
+            <code className="font-mono">--python 3.12</code>, the same Python a Mac without Homebrew already gets, until google-re2
+            ships 3.15 wheels (<a className="underline" href={RE2_ISSUE_URL}>google/re2#647</a>). github.com/imbue-ai/mngr is a mirror, so
+            this is a branch to copy, not a PR.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a className="rounded-md bg-ink px-4 py-2 font-semibold text-paper hover:bg-muted" href={BRANCH_URL}>
@@ -108,7 +110,7 @@ export default function Page() {
           <Terminal title="After: install.sh from the fix commit" run={after} lines={data.excerpts["homebrew-fix"] ?? []} />
         </section>
         <p className="mt-3 text-sm text-muted">
-          Excerpts from real runs on {runDate}, each in an empty HOME with Homebrew on PATH. The &ldquo;after&rdquo; tool env runs{" "}
+          Excerpts from real runs starting {runTime}, each in an empty HOME with Homebrew on PATH. The &ldquo;after&rdquo; tool env runs{" "}
           {after.toolPython}; <code className="font-mono">mngr --version</code> prints {after.mngrVersion}.
         </p>
 
@@ -158,7 +160,7 @@ export default function Page() {
         </section>
 
         <section className="mt-12 grid gap-6 md:grid-cols-2">
-          <div>
+          <div className="min-w-0">
             <h2 className="font-serif text-2xl font-bold">Also checked</h2>
             <ul className="mt-3 list-disc space-y-2 pl-5">
               <li>Python 3.14 installs fine; only 3.15 lacks a google-re2 wheel.</li>
@@ -176,7 +178,7 @@ export default function Page() {
               </li>
             </ul>
           </div>
-          <div>
+          <div className="min-w-0">
             <h2 className="font-serif text-2xl font-bold">When it can go</h2>
             <p className="mt-3">
               The root cause is upstream: google-re2&apos;s latest release (1.1.20251105) ships wheels up to 3.14 only. It&apos;s
